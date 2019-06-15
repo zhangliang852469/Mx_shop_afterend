@@ -36,10 +36,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'xadmin',
-    'crispy_forms',
-    'rest_framework',
-    'DjangoUeditor',
+    'xadmin',  # 后台
+    'crispy_forms',   # xadmin 的依赖
+    'rest_framework',  # drf
+    'DjangoUeditor',  # 富文本
+    'django_filters',  # 过滤
 
     'users.apps.UsersConfig',
     'goods.apps.GoodsConfig',
@@ -140,4 +141,14 @@ USE_TZ = False
 STATIC_URL = '/static/'
 
 MEDIA_URL = '/media/'
+
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+
+REST_FRAMEWORK = {
+
+    'PAGE_SIZE': 10,
+    # 'DEFAULT_FILTER_BACKENDS': ('django_filters.rest_framework.DjangoFilterBackend',)
+
+    }
+
