@@ -9,6 +9,7 @@ from .models import Goods
 class GoodsFilter(rest_framework.FilterSet):
     min_price = rest_framework.NumberFilter(name="shop_price", lookup_expr='gte', help_text="最低价格")
     max_price = rest_framework.NumberFilter(name="shop_price", lookup_expr='lte', help_text="最高价格")
+    name = rest_framework.CharFilter(name='name', lookup_expr='icontains')  # 名称模糊查询
 
     class Meta:
         model = Goods

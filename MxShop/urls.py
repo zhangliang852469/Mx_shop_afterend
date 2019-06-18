@@ -4,12 +4,16 @@ import xadmin
 
 from MxShop.settings import MEDIA_ROOT  #导 入配置文件中的配置
 from django.views.static import serve
-from goods.views import GoodsListDetailViewSet
+from goods.views import GoodsListDetailViewSet, CategoryViewSet
 
 # 配置路由
 router = routers.DefaultRouter()
 
-router.register(r'goods', GoodsListDetailViewSet,)  # 商品列表和详细
+# 配置goods的url
+router.register(r'goods', GoodsListDetailViewSet, base_name='goods')  # 商品列表和详细
+
+# 配置category的url
+router.register(r'categorys', CategoryViewSet, base_name='categorys')  # 商品分类列表
 
 urlpatterns = [
 
